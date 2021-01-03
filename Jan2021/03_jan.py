@@ -15,7 +15,6 @@ class Solution:
                     flag = False
                     break
             if flag:
-                print(i)
                 count = count + 1
 
         return count
@@ -34,5 +33,5 @@ class Solution:
 
 
 if __name__ == '__main__':
-    print(Solution().countArrangement(n=4))
-    print(Solution().countArrangement2(n=4))
+    print(Solution().countArrangement(n=3))
+    print(Solution().countArrangement2(n=3))
