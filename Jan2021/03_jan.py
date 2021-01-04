@@ -4,7 +4,8 @@ from itertools import permutations
 class Solution:
     def countArrangement2(self, n: int) -> int:
         count = 0
-        mylist = range(1,n+1)
+        mylist = list(range(1, n + 1))
+        mylist = mylist[::-1]
         perm = list(permutations(mylist))
         for i in perm:
             flag = True
@@ -15,23 +16,18 @@ class Solution:
                     flag = False
                     break
             if flag:
+                print(i)
                 count = count + 1
 
         return count
 
     def countArrangement(self, n: int) -> int:
-        if(n==1):
-           return 1
-        if(n==2):
-            return 2
-        count = 0
-        fibo_list = [1,2]
-        for i in range(3,n+1):
-            fibo_list.append(fibo_list[i-2] + fibo_list[i-3])
-
-        return fibo_list[-1]
+        prod = 1
+        for i in range(1, n + 1):
+            prod = prod * int(n / i)
+        return prod
 
 
 if __name__ == '__main__':
-    print(Solution().countArrangement(n=3))
-    print(Solution().countArrangement2(n=3))
+    print(Solution().countArrangement(n=7))
+    print(Solution().countArrangement2(n=15))
